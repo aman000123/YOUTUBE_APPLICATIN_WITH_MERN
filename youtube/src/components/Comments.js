@@ -24,7 +24,7 @@ const Comments = ({ videoId, path }) => {
 
     const fetchComment = async () => {
       try {
-        const res = await axios.get(`http://localhost:4005/api/comments/${videoId}`);
+        const res = await axios.get(`https://youtubes-app-1ktq.onrender.com/api/comments/${videoId}`);
         console.log("comments get", res.data)
 
         // Fetch all video data
