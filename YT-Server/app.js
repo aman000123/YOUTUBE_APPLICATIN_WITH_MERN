@@ -87,7 +87,7 @@ app.listen(port, () => {
 
 
 const corsOptions = {
-    origin: 'http://localhost:3000', // Replace with your client's domain
+    origin: 'https://6528ef3e5efdfc74dec803e9--lustrous-sable-b8d952.netlify.app', // Replace with your client's domain
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Enable cookies and authentication headers
 };
