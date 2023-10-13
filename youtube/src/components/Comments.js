@@ -24,7 +24,11 @@ const Comments = ({ videoId, path }) => {
 
     const fetchComment = async () => {
       try {
+<<<<<<< HEAD
         const res = await axios.get(`https://amantube.onrender.com/api/comments/${videoId}`);
+=======
+        const res = await axios.get(`https://youtubes-app-1ktq.onrender.com/api/comments/${videoId}`);
+>>>>>>> 4dadae882997f2925fed68344dbbf9432f0e4522
         console.log("comments get", res.data)
 
         // Fetch all video data

@@ -3,12 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 
-const videoRouter = require('./routes/video');
-const commentRouter = require('./routes/comments');
-const authRouter = require('./routes/authentication');
 
 const cors = require("cors")
 const app = express();
@@ -18,83 +13,36 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-//mongo db url
-const mongoDb = process.env.MONGO;
-
-/*
-
-//without .env file connect /////////////////////////////////////////////////////////
-
-// Create a URL for the MongoDB
-
-//const mongoDb = 'mongodb://127.0.0.1:27017/Youtube';
-
-
-//jb collection==table ho tabhi show hoga mongodb me
-
-//scheem se hi coonect karte hai  collection dikhne ke liye
-
-
-
-
-// Connect to MongoDB using a promise
-
-mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-        console.log('MongoDB is connected');
-    })
-    .catch((err) => {
-        console.error('MongoDB connection error:', err);
-    });
-
-
-
-*/
-
-
-
-// const connect = () => {
-//     mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true })
-//         .then(() => {
-//             console.log("Connected to db");
-//         })
-//         .catch(err => {
-//             console.error("Error connecting to MongoDB:", err);
-//         });
-// }
-
 // Connect to MongoDB using Mongoose
 
-const mongoURL = process.env.MONGO_URL
+//const mongoURL = process.env.MONGO_URL
 
-mongoose.connect(mongoURL, {
+// Connect to MongoDB using Mongoose
+mongoose.connect(`mongodb+srv://aman:aman9616223392@cluster0.rr10twt.mongodb.net/Youtube?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-    .then(() => {
-        console.log('MongoDB is connected');
-    })
-    .catch((err) => {
-        console.error('MongoDB connection error:', err);
-    });
+.then(() => {
+    console.log('MongoDB is connected');
+})
+.catch((err) => {
+    console.error('MongoDB connection error:', err);
+});
 
 
 const port = process.env.PORT || '4005'
 app.listen(port, () => {
     // connect(),
-    console.log("Connected at 4005 port")
+    console.log("Connected at port 4005 port")
 })
 
-
 const corsOptions = {
-    origin: 'http://localhost:3000', // Replace with your client's domain
+    origin: 'https://6528fa20226bfb086c5caeeb--incredible-belekoy-2b5da0.netlify.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Enable cookies and authentication headers
 };
 
 app.use(cors(corsOptions));
-
-
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -116,6 +64,15 @@ app.use((err, req, res, next) => {
         message
     })
 })
+
+
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+
+const videoRouter = require('./routes/video');
+const commentRouter = require('./routes/comments');
+const authRouter = require('./routes/authentication');
+
 
 app.use('/', indexRouter);
 app.use('/api/auths', authRouter);
