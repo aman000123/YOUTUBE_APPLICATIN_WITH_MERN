@@ -47,13 +47,13 @@ const Video = () => {
 
         // If the user hasn't viewed the video yet, increase views
         if (!hasViewed) {
-          await axios.put(`https://amantube.onrender.com/api/videos/view/${currentVideo._id}`);
+          await axios.put(`https://amanytbes.onrender.com/api/videos/view/${currentVideo._id}`);
           setHasViewed(true);
         }
 
 
-        const videoRes = await axios.get(`https://amantube.onrender.com/api/videos/find/${path}`)
-        const chanelRes = await axios.get(`https://amantube.onrender.com/api/users/find/${videoRes.data.userId}`);
+        const videoRes = await axios.get(`https://amanytbes.onrender.com/api/videos/find/${path}`)
+        const chanelRes = await axios.get(`https://amanytbes.onrender.com/api/users/find/${videoRes.data.userId}`);
         //  console.log("videoRes.data.userid", videoRes.data.userId)
         setChanel(chanelRes.data)
         dispatch(fetchSuccess(videoRes.data))
@@ -83,7 +83,7 @@ const Video = () => {
 
 
 
-      await axiosForLike.put(`https://amantube.onrender.com/api/users/like/${currentVideo._id}`)
+      await axiosForLike.put(`https://amanytbes.onrender.com/api/users/like/${currentVideo._id}`)
       console.log('like(currentUser._id)', like(currentUser._id))
       dispatch(like(currentUser._id))
     }
@@ -104,7 +104,7 @@ const Video = () => {
         withCredentials: true,
       });
 
-      await axiosForDislike.put(`https://amantube.onrender.com/api/users/dislike/${currentVideo._id}`)
+      await axiosForDislike.put(`https://amanytbes.onrender.com/api/users/dislike/${currentVideo._id}`)
       dispatch(dislike(currentUser._id))
 
     }
@@ -129,11 +129,11 @@ const Video = () => {
 
       currentUser.subscribedUsers?.includes(chanel._id)
 
-        ? await axiosForSub.put(`https://amantube.onrender.com/api/users/unsub/${chanel._id}`)
+        ? await axiosForSub.put(`https://amanytbes.onrender.com/api/users/unsub/${chanel._id}`)
 
 
 
-        : await axiosForSub.put(`https://amantube.onrender.com/api/users/sub/${chanel._id}`);
+        : await axiosForSub.put(`https://amanytbes.onrender.com/api/users/sub/${chanel._id}`);
       dispatch(subscription(chanel._id))
     }
 

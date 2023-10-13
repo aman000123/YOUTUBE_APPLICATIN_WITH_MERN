@@ -61,7 +61,7 @@ const Signup = () => {
 
         try {
 
-            const res = await axios.post("https://amantube.onrender.com/api/auths/signup", { name, password, email }, {
+            const res = await axios.post("https://amanytbes.onrender.com/api/auths/signup", { name, password, email }, {
                 headers: {
                     "Content-Type": "application/json"
                 },

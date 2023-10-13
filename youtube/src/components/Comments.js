@@ -24,15 +24,14 @@ const Comments = ({ videoId, path }) => {
 
     const fetchComment = async () => {
       try {
-<<<<<<< HEAD
-        const res = await axios.get(`https://amantube.onrender.com/api/comments/${videoId}`);
-=======
-        const res = await axios.get(`https://youtubes-app-1ktq.onrender.com/api/comments/${videoId}`);
->>>>>>> 4dadae882997f2925fed68344dbbf9432f0e4522
+
+        const res = await axios.get(`https://amanytbes.onrender.com/api/comments/${videoId}`);
+
+
         console.log("comments get", res.data)
 
         // Fetch all video data
-        const videoResponse = await axios.get('https://amantube.onrender.com/api/videos/all');
+        const videoResponse = await axios.get('https://amanytbes.onrender.com/api/videos/all');
 
         // Set videos in state
         setVideos(videoResponse.data.reduce((acc, video) => {
@@ -63,7 +62,7 @@ const Comments = ({ videoId, path }) => {
         withCredentials: true,
       });
 
-      const res = await axiosForComment.post("https://amantube.onrender.com/api/comments", { desc: comment, videoId }, { withCredentials: true, });
+      const res = await axiosForComment.post("https://amanytbes.onrender.com/api/comments", { desc: comment, videoId }, { withCredentials: true, });
       // console.log("comments send  data", res.data)
 
       // Add the new comment to the comments state
@@ -100,7 +99,7 @@ const Comments = ({ videoId, path }) => {
       });
 
       const res = await axiosForComment.delete(
-        `https://amantube.onrender.com/api/comments/${commentId}?userId=${userId}&videoId=${videoId}`
+        `https://amanytbes.onrender.com/api/comments/${commentId}?userId=${userId}&videoId=${videoId}`
       );
       if (res.status === 200) {
         // Remove the deleted comment from the state

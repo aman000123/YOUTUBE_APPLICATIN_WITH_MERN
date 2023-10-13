@@ -22,7 +22,7 @@ const Signin = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post("https://amantube.onrender.com/api/auths/signin", { name, password },
+      const res = await axios.post("https://amanytbes.onrender.com/api/auths/signin", { name, password },
         {
           headers: {
             "Content-Type": "application/json",

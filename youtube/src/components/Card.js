@@ -16,7 +16,7 @@ const Card = ({ type, video }) => {
   useEffect(() => {
     const fetchChannel = async () => {
       try {
-        const res = await axios.get(`https://amantube.onrender.com/api/users/find/${video.userId}`);
+        const res = await axios.get(`https://amanytbes.onrender.com/api/users/find/${video.userId}`);
 
         setChannel(res.data);
       } catch (error) {

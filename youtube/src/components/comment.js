@@ -20,7 +20,7 @@ const Comment = ({ comment, onDeleteComment, userId, imgUrl }) => {
   useEffect(() => {
     const fetchChannel = async () => {
       try {
-        const res = await axios.get(`https://amantube.onrender.com/api/users/find/${comment.userId}`);
+        const res = await axios.get(`https://amanytbes.onrender.com/api/users/find/${comment.userId}`);
         setChannel(res.data);
         // console.log("chanell===", res.data)
 
