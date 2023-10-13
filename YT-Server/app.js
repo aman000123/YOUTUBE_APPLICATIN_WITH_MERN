@@ -86,13 +86,14 @@ app.listen(port, () => {
 })
 
 
-// const corsOptions = {
-//     origin: 'https://6528f2bfdf9a137838c57229--tourmaline-tiramisu-6227a6.netlify.app', // Replace with your client's domain
-//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//     credentials: true, // Enable cookies and authentication headers
-// };
+const corsOptions = {
+    origin: 'https://6528f76a7aab9b78454507f8--glittery-zuccutto-623cf1.netlify.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Enable cookies and authentication headers
+};
 
-app.use(cors());
+// Use CORS middleware with the defined options
+app.use(cors(corsOptions));
 
 
 
