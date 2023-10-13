@@ -17,7 +17,7 @@ const Search = () => {
 
     useEffect(() => {
         const fetchVideos = async () => {
-            const res = await axios.get(`http://localhost:4005/api/videos/search${query}`);
+            const res = await axios.get(`https://amantube.onrender.com/api/videos/search${query}`);
             setVideos(res.data);
         };
         fetchVideos();

@@ -112,7 +112,7 @@ const Upload = ({ setOpen }) => {
             const axiosForUpload = axios.create({
                 withCredentials: true,
             });
-            const res = await axiosForUpload.post("http://localhost:4005/api/videos", { ...inputs, tags })
+            const res = await axiosForUpload.post("https://amantube.onrender.com/api/videos", { ...inputs, tags })
             setOpen(false)
             res.status === 200 && navigate(`/video/${res.data._id}`)
 
