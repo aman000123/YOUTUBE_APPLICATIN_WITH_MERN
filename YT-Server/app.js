@@ -36,6 +36,15 @@ app.listen(port, () => {
     console.log("Connected at port 4005 port")
 })
 
+
+
+// Enable CORS for all routes (globally)
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+
 const corsOptions = {
     origin: 'https://65297318104ccc19af71b8c8--eclectic-crumble-be736a.netlify.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
