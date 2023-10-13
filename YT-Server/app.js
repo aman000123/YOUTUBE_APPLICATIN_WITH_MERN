@@ -15,18 +15,19 @@ dotenv.config();
 
 // Connect to MongoDB using Mongoose
 
-const mongoURL = process.env.MONGO_URL
+//const mongoURL = process.env.MONGO_URL
 
-mongoose.connect(mongoURL, {
+// Connect to MongoDB using Mongoose
+mongoose.connect(`mongodb+srv://aman:aman9616223392@cluster0.rr10twt.mongodb.net/Youtube?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-    .then(() => {
-        console.log('MongoDB is connected');
-    })
-    .catch((err) => {
-        console.error('MongoDB connection error:', err);
-    });
+.then(() => {
+    console.log('MongoDB is connected');
+})
+.catch((err) => {
+    console.error('MongoDB connection error:', err);
+});
 
 
 const port = process.env.PORT || '4005'
