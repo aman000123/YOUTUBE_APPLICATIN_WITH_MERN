@@ -87,7 +87,7 @@ app.listen(port, () => {
 
 
 const corsOptions = {
-    origin: 'https://6528f76a7aab9b78454507f8--glittery-zuccutto-623cf1.netlify.app',
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Enable cookies and authentication headers
 };
