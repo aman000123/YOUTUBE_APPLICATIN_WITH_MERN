@@ -17,11 +17,7 @@
     "dotenv": "^16.3.1",
     "express": "~4.16.1",
     "jsonwebtoken": "^9.0.2",
-<<<<<<< HEAD
     "mongoose": "^7.6.1",
-=======
-   "mongoose": "^7.6.1",
->>>>>>> 4dadae882997f2925fed68344dbbf9432f0e4522
     "morgan": "~1.9.1",
     "vercel": "^28.15.3"
   },
