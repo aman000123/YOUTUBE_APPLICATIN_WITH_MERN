@@ -136,6 +136,7 @@ const random = async (req, res, next) => {
 
     }
     catch (err) {
+         res.status(500).json("Error in random video")
         next(err)
     }
 
