@@ -18,7 +18,15 @@ dotenv.config();
 //const mongoURL = process.env.MONGO_URL
 
 // Connect to MongoDB using Mongoose
-mongoose.connect(`mongodb+srv://aman:aman9616223392@cluster0.rr10twt.mongodb.net/Youtube?retryWrites=true&w=majority`, {
+mongodb+srv://aman:<password>@cluster0.rr10twt.mongodb.net/?retryWrites=true&w=majority
+
+
+
+
+
+
+
+mongoose.connect(`mongodb+srv://aman:aman@123@cluster0.rr10twt.mongodb.net/Youtube?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
