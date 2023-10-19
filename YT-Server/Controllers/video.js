@@ -133,6 +133,9 @@ const random = async (req, res, next) => {
         //aggrgate function for random
         const videos = await Video.aggregate([{ $sample: { size: 40 } }]);
         res.status(200).json(videos)
+        console.log('Videos:', videos); // Add this for debugging
+        console.log("helllo===")
+
 
     }
     catch (err) {

@@ -2,12 +2,10 @@
   "name": "yt-server",
   "version": "0.0.0",
   "private": true,
-    "main": "app.js",
-   "scripts": {
-  "start": "node app.js"
-
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
   },
-
   "dependencies": {
     "add": "^2.0.6",
     "bcrypt": "^5.1.1",

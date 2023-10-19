@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { fetchSuccess, like, dislike } from "../redux/videoSlice";
+import { fetchSuccess, like, dislike, incrementViews } from "../redux/videoSlice";
 
 import { subscription } from "../redux/userSlice"
 import { format } from "timeago.js";
@@ -45,16 +45,25 @@ const Video = () => {
       try {
 
 
-        // If the user hasn't viewed the video yet, increase views
-        if (!hasViewed) {
-          await axios.put(`https://amanytbes.onrender.com/api/videos/view/${currentVideo._id}`);
-          setHasViewed(true);
-        }
+
 
 
         const videoRes = await axios.get(`https://amanytbes.onrender.com/api/videos/find/${path}`)
         const chanelRes = await axios.get(`https://amanytbes.onrender.com/api/users/find/${videoRes.data.userId}`);
         //  console.log("videoRes.data.userid", videoRes.data.userId)
+
+        // Check if the video has already been viewed within the current session
+
+        const hasIncrementedViews = localStorage.getItem(`hasIncrementedViews_${videoRes.data._id}`);
+        if (!hasIncrementedViews) {
+
+          await axios.put(`http://localhost:4004/api/videos/view/${videoRes.data._id}`);
+
+          localStorage.setItem(`hasIncrementedViews_${videoRes.data._id}`, "true");
+          dispatch(incrementViews());
+        }
+
+
         setChanel(chanelRes.data)
         dispatch(fetchSuccess(videoRes.data))
       }
