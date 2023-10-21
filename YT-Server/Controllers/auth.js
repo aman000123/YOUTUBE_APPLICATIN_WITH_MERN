@@ -30,7 +30,7 @@ const signup = async (req, res, next) => {
        // next(err);
       //  res.status(500).json({ message: 'An error occurred while signup in', error: err });
        // res.status(500).json({ error: err });
-        res.status(500).send(req.body)
+       res.status(500).send(err)
     }
 }
 
