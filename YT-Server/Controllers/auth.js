@@ -81,8 +81,10 @@ const signin = async (req, res, next) => {
 
 
     } catch (err) {
-        next(err)
+     //   next(err)
         // res.send(err)
+        
+        res.status(500).json({ message: 'An error occurred while signin' });
 
     }
 
