@@ -29,8 +29,8 @@ const signup = async (req, res, next) => {
         await newUser.save();
         res.status(200).send("User has been created");
     } catch (err) {
-        next(err);
-        res.status(500).json({ message: 'An error occurred while processing your request.' });
+        //  next(err);
+        res.status(500).json({ message: 'An error occurred in signup.' });
     }
 }
 
@@ -81,8 +81,8 @@ const signin = async (req, res, next) => {
 
 
     } catch (err) {
-        next(err)
-        // res.send(err)
+        // next(err)
+        res.status(500).json({ message: 'An error occurred in signin.' });
 
     }
 
