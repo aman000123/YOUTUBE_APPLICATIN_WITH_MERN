@@ -34,7 +34,8 @@ const Signin = () => {
 
       navigate("/")
     } catch (err) {
-      toast.error(err.response.data.message)
+     // toast.error(err.response.data.message)
+       toast.error(err.response?.data?.message)
       //  console.log("erro in login", err)
       dispatch(loginFailure());
     }
