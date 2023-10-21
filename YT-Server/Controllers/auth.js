@@ -29,8 +29,9 @@ const signup = async (req, res, next) => {
         await newUser.save();
         res.status(200).send("User has been created");
     } catch (err) {
-        //  next(err);
-        res.status(500).json({ message: 'An error occurred in signup.' });
+        //  res.status(500).json({ message: 'An error occurred while signup in', error: err });
+        res.status(500).json({ error: err });
+
     }
 }
 
@@ -82,7 +83,8 @@ const signin = async (req, res, next) => {
 
     } catch (err) {
         // next(err)
-        res.status(500).json({ message: 'An error occurred in signin.' });
+        res.status(500).json({ message: 'An error occurred while signing in', error: err });
+
 
     }
 
@@ -120,7 +122,6 @@ const googleAuth = async (req, res, next) => {
         next(err);
     }
 };
-
 
 
 
