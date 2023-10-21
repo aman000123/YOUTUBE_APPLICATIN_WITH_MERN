@@ -29,7 +29,7 @@ const signup = async (req, res, next) => {
         await newUser.save();
         res.status(200).send("User has been created");
     } catch (err) {
-        next(err);
+       // next(err);
         res.status(500).json({ message: 'An error occurred while processing your request.' });
     }
 }
