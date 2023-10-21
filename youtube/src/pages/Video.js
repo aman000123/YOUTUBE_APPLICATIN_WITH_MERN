@@ -57,7 +57,7 @@ const Video = () => {
         const hasIncrementedViews = localStorage.getItem(`hasIncrementedViews_${videoRes.data._id}`);
         if (!hasIncrementedViews) {
 
-          await axios.put(`http://localhost:4004/api/videos/view/${videoRes.data._id}`);
+          await axios.put(`https://amanytbes.onrender.com/api/videos/view/${videoRes.data._id}`);
 
           localStorage.setItem(`hasIncrementedViews_${videoRes.data._id}`, "true");
           dispatch(incrementViews());
