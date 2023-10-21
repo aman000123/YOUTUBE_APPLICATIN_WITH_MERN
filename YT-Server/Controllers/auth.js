@@ -8,63 +8,32 @@ const { createError } = require('../error')
 
 //mongoose se req to async hoga  bcz take time
 
-// const signup = async (req, res, next) => {
-//     try {
-//         // Check if a user with the same email already exists
-//         const existingUser = await User.findOne({ email: req.body.email });
-//         if (existingUser) {
-//             // If a user with the same email exists, respond with an error message
-
-//             return res.status(400).json({ message: 'Hi user this email id is already exists.' });
-//         }
-
-//         // If no existing user, proceed with user creation
-//         const salt = bcrypt.genSaltSync(10);
-//         const hash = bcrypt.hashSync(req.body.password, salt);
-//         const newUser = new User({ ...req.body, password: hash });
-
-//         console.log("user save in db is", newUser);
-
-//         // Save the new user in MongoDB
-//         await newUser.save();
-//         res.status(200).send("User has been created");
-//     } catch (err) {
-//        // next(err);
-//       //  res.status(500).json({ message: 'An error occurred while signup in', error: err });
-//        // res.status(500).json({ error: err });
-//         res.status(500).send(err)
-
-
-
-//     }
-// }
-
-
 const signup = async (req, res, next) => {
     try {
         // Check if a user with the same email already exists
         const existingUser = await User.findOne({ email: req.body.email });
-
         if (existingUser) {
             // If a user with the same email exists, respond with an error message
-            return res.status(400).json({ message: 'Hi user, this email id is already in use.' });
+
+            return res.status(400).json({ message: 'Hi user this email id is already exists.' });
         }
-
         // If no existing user, proceed with user creation
-        const salt = await bcrypt.genSalt(10);
-        const hash = await bcrypt.hash(req.body.password, salt);
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(req.body.password, salt);
         const newUser = new User({ ...req.body, password: hash });
-
-        console.log("User saved in the database:", newUser);
+        console.log("user save in db is", newUser);
 
         // Save the new user in MongoDB
         await newUser.save();
-        res.status(200).json({ message: 'User has been created' });
+        res.status(200).send("User has been created");
     } catch (err) {
-        console.error("Error during signup:", err);
-        res.status(500).json({ message: 'An error occurred while signing up', error: err });
+       // next(err);
+      //  res.status(500).json({ message: 'An error occurred while signup in', error: err });
+       // res.status(500).json({ error: err });
+        res.status(500).send(err)
     }
 }
+
 
 
 const signin = async (req, res, next) => {
