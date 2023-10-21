@@ -30,7 +30,8 @@ const signup = async (req, res, next) => {
         res.status(200).send("User has been created");
     } catch (err) {
        // next(err);
-        res.status(500).json({ message: 'An error occurred while signup.' });
+        res.status(500).json({ message: 'An error occurred while signup in', error: err });
+
     }
 }
 
@@ -84,7 +85,8 @@ const signin = async (req, res, next) => {
      //   next(err)
         // res.send(err)
         
-        res.status(500).json({ message: 'An error occurred while signin' });
+res.status(500).json({ message: 'An error occurred while signing in', error: err });
+
 
     }
 
