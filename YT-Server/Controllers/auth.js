@@ -69,7 +69,7 @@ const signin = async (req, res, next) => {
         res.cookie("access_token", token, {
             httpOnly: true,
             // Add any additional cookie options here if needed
-              domain: "https://amanytbes.onrender.com",
+              domain: "https://6536086434f65672ef06dab4--hilarious-rugelach-8effd5.netlify.app",
 
             secure: true, // Set to true if using HTTPS
         });
@@ -103,6 +103,7 @@ const googleAuth = async (req, res, next) => {
             res
                 .cookie("access_token", token, {
                     httpOnly: true,
+                        domain: "https://6536086434f65672ef06dab4--hilarious-rugelach-8effd5.netlify.app",
                 })
                 .status(200)
                 .json(user._doc);
