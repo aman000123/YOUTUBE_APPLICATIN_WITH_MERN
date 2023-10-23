@@ -21,7 +21,7 @@ const Signin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     dispatch(loginStart());
-    try {
+    try {   
       const res = await axios.post("https://amanytbes.onrender.com/api/auths/signin", { name, password },
         {
           headers: {
@@ -30,13 +30,13 @@ const Signin = () => {
           withCredentials: true, // Include credentials (cookies) in the request
         });
       dispatch(loginSuccess(res.data));
-      //  console.log("sign in data", res.data)
+      console.log("sign in data", res.data)
 
       navigate("/")
     } catch (err) {
      // toast.error(err.response.data.message)
        toast.error(err.response?.data?.message)
-      //  console.log("erro in login", err)
+      console.log("erro in login", err)
       dispatch(loginFailure());
     }
   };
