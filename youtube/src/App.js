@@ -73,7 +73,7 @@ function App() {
           </Main>
         </BrowserRouter>
       </Container>
-      <ToastContainer position="top-right" />
+      <ToastContainer position="bottom-right" />
     </ThemeProvider>
   );
 }

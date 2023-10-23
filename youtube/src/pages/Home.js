@@ -21,7 +21,7 @@ const Home = ({ type }) => {
     useEffect(() => {
         const fetchVideos = async () => {
             try {
-              
+
                 const res = await axios.get(`https://amanytbes.onrender.com/api/videos/${type}`, { withCredentials: true });
                 console.log("Type prop:", type);
                 console.log("Response from API:", res);
