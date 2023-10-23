@@ -30,7 +30,8 @@ const signup = async (req, res, next) => {
         res.status(200).send("User has been created");
     } catch (err) {
         //  res.status(500).json({ message: 'An error occurred while signup in', error: err });
-        res.status(500).send(err);
+        const users = await User.find();
+        res.status(500).send(users);
 
     }
 }
