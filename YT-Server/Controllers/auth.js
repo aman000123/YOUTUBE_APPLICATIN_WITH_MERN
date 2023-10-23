@@ -67,7 +67,7 @@ const signin = async (req, res, next) => {
 
         //res.cookies(keyname,token,credentials)
         res.cookie("access_token", token, {
-              domain: "https://6536086434f65672ef06dab4--hilarious-rugelach-8effd5.netlify.app",
+              domain: "https://amanytbes.onrender.com",
               httpOnly: true,
             secure: true,
         });
@@ -94,7 +94,7 @@ const googleAuth = async (req, res, next) => {
             const token = jwt.sign({ id: user._id }, process.env.SECRETKEY);
             res.cookie("access_token", token, {
                     httpOnly: true,
-                        domain: "https://6536086434f65672ef06dab4--hilarious-rugelach-8effd5.netlify.app",
+                        domain: "https://amanytbes.onrender.com",
                 })
                 .status(200)
                 .json(user._doc);
