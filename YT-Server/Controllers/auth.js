@@ -69,6 +69,7 @@ const signin = async (req, res, next) => {
         res.cookie("access_token", token, {
             httpOnly: true,
             // Add any additional cookie options here if needed
+              domain: "https://amanytbes.onrender.com",
 
             secure: true, // Set to true if using HTTPS
         });
