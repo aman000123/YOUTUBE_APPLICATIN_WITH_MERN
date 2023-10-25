@@ -70,7 +70,7 @@ const signin = async (req, res, next) => {
             domain: ".netlify.app", 
               httpOnly: true,
             secure: true,
-             sameSite: 'None'
+        
         });
 
 
