@@ -53,6 +53,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+res.header("Access-Control-Allow-Headers","*");
+res.header('Access-Control-Allow-Credentials', true);
+res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+
 //https://github.com/aman000123/YOUTUBE_APPLICATIN_WITH_MERN  repository
 
 app.use(logger('dev'));
