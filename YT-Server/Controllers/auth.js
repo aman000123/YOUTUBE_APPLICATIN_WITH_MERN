@@ -67,21 +67,15 @@ const signin = async (req, res, next) => {
 
         //res.cookies(keyname,token,credentials)
         res.cookie("access_token", token, {
-            httpOnly: true,
-            // Add any additional cookie options here if needed
-
-            secure: true, // Set to true if using HTTPS
+          //    domain: ".onrender.com",
+            domain: ".netlify.app", 
+              httpOnly: true,
+            secure: true,
         });
 
         // Send user data (excluding the password) in the response
         const { password: _, ...userData } = user._doc;
-
         res.status(200).json(userData);
-
-
-
-
-
     } catch (err) {
         // next(err)
         res.status(500).json({ message: 'An error occurred while signing in', error: err });
@@ -99,9 +93,9 @@ const googleAuth = async (req, res, next) => {
         const user = await User.findOne({ email: req.body.email });
         if (user) {
             const token = jwt.sign({ id: user._id }, process.env.SECRETKEY);
-            res
-                .cookie("access_token", token, {
+            res.cookie("access_token", token, {
                     httpOnly: true,
+                        domain: "https://amanytbes.onrender.com",
                 })
                 .status(200)
                 .json(user._doc);
