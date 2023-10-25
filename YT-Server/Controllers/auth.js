@@ -69,7 +69,8 @@ const signin = async (req, res, next) => {
        
 
         res.cookie("access_token", token, {
-            domain: ".netlify.app", 
+          //  domain: ".netlify.app", 
+            domain:".render.com",
               httpOnly: true,
             secure: false,
         });
