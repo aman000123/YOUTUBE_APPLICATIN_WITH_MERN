@@ -56,10 +56,8 @@ const signin = async (req, res, next) => {
 
 
         //generate token
-        const secret = 'amamamaama'
-        const token = jwt.sign({ id: user._id }, secret
-                              // process.env.SECRETKEY
-                              )
+        
+        const token = jwt.sign({ id: user._id }, process.env.SECRETKEY)
         console.log("token is", token)
 
         //we ca not send password
