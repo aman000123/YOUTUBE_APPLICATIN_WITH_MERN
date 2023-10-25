@@ -72,7 +72,7 @@ const signin = async (req, res, next) => {
           //  domain: ".netlify.app", 
             domain:".render.com",
               httpOnly: true,
-            secure: false,
+            secure: true,
         });
 
      
