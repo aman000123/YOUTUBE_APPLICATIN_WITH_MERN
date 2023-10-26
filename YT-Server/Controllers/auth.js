@@ -68,16 +68,27 @@ const signin = async (req, res, next) => {
         //res.cookies(keyname,token,credentials)
        
 
-        res.cookie("access_token", token, {
-          //  domain: ".netlify.app", 
-           // domain:".render.com",
-              domain:"unique-croquembouche-40b463.netlify.app",
-              path: "/", 
-              httpOnly: true,
-            secure: true,
-        });
+        // res.cookie("access_token", token, {
+        //   //  domain: ".netlify.app", 
+        //    // domain:".render.com",
+        //       domain:"unique-croquembouche-40b463.netlify.app",
+        //       path: "/", 
+        //       httpOnly: true,
+        //     secure: true,
+        // });
 
-     
+     // Calculate the expiration date for one week from the current time
+         const expirationDate = new Date();
+           expirationDate.setTime(expirationDate.getTime() + 7 * 24 * 60 * 60 * 1000); // 7 days * 24 hours * 60 minutes * 60 seconds * 1000 milliseconds
+
+// Set the cookie with the 'expires' attribute
+res.cookie("access_token", token, {
+  path: "/",
+  httpOnly: true,
+  secure: true,
+  expires: expirationDate,
+});
+
 
         // Send user data (excluding the password) in the response
         const { password: _, ...userData } = user._doc;
