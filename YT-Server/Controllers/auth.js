@@ -56,7 +56,6 @@ const signin = async (req, res, next) => {
 
 
         //generate token
-        
         const token = jwt.sign({ id: user._id }, process.env.SECRETKEY)
         console.log("token is", token)
 
@@ -71,7 +70,7 @@ const signin = async (req, res, next) => {
 
         res.cookie("access_token", token, {
           //  domain: ".netlify.app", 
-           // domain:".render.com",
+            domain:".render.com",
               httpOnly: true,
             secure: true,
         });
