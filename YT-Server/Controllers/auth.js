@@ -74,7 +74,7 @@ const signin = async (req, res, next) => {
               domain:"unique-croquembouche-40b463.netlify.app",
               path: "/", 
               httpOnly: false,
-            secure: false,
+            secure: true,
              sameSite:'none'
         });
 
