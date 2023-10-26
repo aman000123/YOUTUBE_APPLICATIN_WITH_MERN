@@ -75,7 +75,7 @@ const signin = async (req, res, next) => {
             //  path: "/", 
               httpOnly: true,
             secure: true,
-             sameSite:'none'
+            // sameSite:'none'
         });
 
 
