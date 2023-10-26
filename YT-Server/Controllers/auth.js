@@ -71,8 +71,8 @@ const signin = async (req, res, next) => {
         res.cookie("access_token", token, {
           //  domain: ".netlify.app", 
            // domain:".render.com",
-               domain:"unique-croquembouche-40b463.netlify.app",
-              path: "https://6538ab4dc2c1fc50edef04f3--unique-croquembouche-40b463.netlify.app", 
+             //  domain:"unique-croquembouche-40b463.netlify.app",
+              path: "/", 
               httpOnly: true,
             secure: true,
         });
