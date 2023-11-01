@@ -69,16 +69,13 @@ const signin = async (req, res, next) => {
              sameSite: 'None'
           
         });
-
-
-
         // Send user data (excluding the password) in the response
         const { password: _, ...userData } = user._doc;
         res.status(200).json(userData);
     } catch (err) {
         // next(err)
-      //  res.status(500).json({ message: 'An error occurred while signing in', error: err });
- res.status(500).send(err);
+       res.status(500).json({ message: 'An error occurred while signing in', error: err });
+ 
 
     }
 
