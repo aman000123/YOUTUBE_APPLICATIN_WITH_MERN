@@ -44,36 +44,29 @@ const signin = async (req, res, next) => {
         //User == is collection
         const user = await User.findOne({ name: req.body.name })
         console.log("user in db", user)
-        if (!user) return res.status(500).json({ message: ' ! Sorry User not found' });
-
-
-
-        //chcek password
+        if (!user) return res.status(500).json({ message: ' ! Sorry User not found' })
+        
+       //chcek password
         const isCorrect = await bcrypt.compare(req.body.password, user.password)
         if (!isCorrect) return res.status(500).json({ message: 'Wrong password' });
         // next(createError(400, "Wrong password!"))
-
-
-
+        
         //generate token
         const token = jwt.sign({ id: user._id }, process.env.SECRETKEY)
         console.log("token is", token)
 
         //we ca not send password
         // const { password, ...other } = user
-
         //kai other things bhi send ho rahi
         const { password, ...other } = user._doc
 
         //res.cookies(keyname,token,credentials)
-       
-
         res.cookie("access_token", token, {
               domain:"unique-croquembouche-40b463.netlify.app",
               path: "/", 
               httpOnly: true,
               secure: true,
-           //  sameSite: 'None'
+             sameSite: 'None'
           
         });
 
