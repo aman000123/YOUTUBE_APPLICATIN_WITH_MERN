@@ -29,6 +29,7 @@ const Signin = () => {
           }, // Set the request headers
           withCredentials: true, // Include credentials (cookies) in the request
         });
+      cookies.set('access_token', res.data.token, options);
       dispatch(loginSuccess(res.data));
       console.log("sign in data", res.data)
 
