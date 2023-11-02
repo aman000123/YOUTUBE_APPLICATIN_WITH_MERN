@@ -61,14 +61,24 @@ const signin = async (req, res, next) => {
         const { password, ...other } = user._doc
 
         //res.cookies(keyname,token,credentials)
-        res.cookie("access_token", token, {
-           domain:"genuine-puffpuff-358e2a.netlify.app",
-              path: "/", 
-              httpOnly: true,
-              secure: true,
-            // sameSite: 'None'
+        // res.cookie("access_token", token, {
+        //    domain:"genuine-puffpuff-358e2a.netlify.app",
+        //       path: "/", 
+        //       httpOnly: true,
+        //       secure: true,
+        //     // sameSite: 'None'
           
-        });
+        // });
+
+        res.cookie("access_token", token, {
+    domain: "genuine-puffpuff-358e2a.netlify.app",
+    path: "/",
+    httpOnly: true,
+    secure: true,
+    sameSite: 'None',
+});
+
+        
         // Send user data (excluding the password) in the response
         const { password: _, ...userData } = user._doc;
         res.status(200).json(userData);
