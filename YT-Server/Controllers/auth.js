@@ -66,7 +66,7 @@ const signin = async (req, res, next) => {
          // path: "/", 
               httpOnly: true,
               secure: true,
-             sameSite: 'None'
+            // sameSite: 'None'
           
         });
         // Send user data (excluding the password) in the response
