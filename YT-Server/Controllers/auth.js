@@ -60,22 +60,12 @@ const signin = async (req, res, next) => {
         //kai other things bhi send ho rahi
         const { password, ...other } = user._doc
 
-        //res.cookies(keyname,token,credentials)
-        // res.cookie("access_token", token, {
-        //    domain:"genuine-puffpuff-358e2a.netlify.app",
-        //       path: "/", 
-        //       httpOnly: true,
-        //       secure: true,
-        //     // sameSite: 'None'
-          
-        // });
-
         res.cookie("access_token", token, {
     domain: "genuine-puffpuff-358e2a.netlify.app",
     path: "/",
     httpOnly: true,
     secure: true,
-    sameSite: 'None',
+    //sameSite: 'None',
 });
 
         
