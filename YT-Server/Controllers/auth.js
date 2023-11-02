@@ -62,8 +62,8 @@ const signin = async (req, res, next) => {
 
         //res.cookies(keyname,token,credentials)
         res.cookie("access_token", token, {
-          //   domain:"unique-croquembouche-40b463.netlify.app",
-            //  path: "/", 
+           domain:"genuine-puffpuff-358e2a.netlify.app",
+              path: "/", 
               httpOnly: true,
               secure: true,
             // sameSite: 'None'
