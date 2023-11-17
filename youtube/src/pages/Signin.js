@@ -21,7 +21,7 @@ const Signin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     dispatch(loginStart());
-    try {   
+    try {
       const res = await axios.post("https://amanytbes.onrender.com/api/auths/signin", { name, password },
         {
           headers: {
@@ -29,13 +29,21 @@ const Signin = () => {
           }, // Set the request headers
           withCredentials: true, // Include credentials (cookies) in the request
         });
+
+
+      // Set the received token into a cookie
+      document.cookie = `access_token=${res.data.token}; path=/; domain=ancy-sorbet-4bc334.netlify.app; secure; HttpOnly;`;
+
+
+
+
       dispatch(loginSuccess(res.data));
       console.log("sign in data", res.data)
 
       navigate("/")
     } catch (err) {
-     // toast.error(err.response.data.message)
-       toast.error(err.response?.data?.message)
+      // toast.error(err.response.data.message)
+      toast.error(err.response?.data?.message)
       console.log("erro in login", err)
       dispatch(loginFailure());
     }

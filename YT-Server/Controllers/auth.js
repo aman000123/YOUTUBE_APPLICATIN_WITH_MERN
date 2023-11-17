@@ -67,9 +67,9 @@ const signin = async (req, res, next) => {
 
         //res.cookies(keyname,token,credentials)
         res.cookie("access_token", token, {
-          //    domain: ".onrender.com",
-            domain: ".netlify.app", 
-              httpOnly: true,
+            //    domain: ".onrender.com",
+            domain: "unique-croquembouche-40b463.netlify.app",
+            httpOnly: true,
             secure: true,
         });
 
@@ -94,9 +94,9 @@ const googleAuth = async (req, res, next) => {
         if (user) {
             const token = jwt.sign({ id: user._id }, process.env.SECRETKEY);
             res.cookie("access_token", token, {
-                    httpOnly: true,
-                        domain: "https://amanytbes.onrender.com",
-                })
+                httpOnly: true,
+                domain: "https://amanytbes.onrender.com",
+            })
                 .status(200)
                 .json(user._doc);
         } else {
