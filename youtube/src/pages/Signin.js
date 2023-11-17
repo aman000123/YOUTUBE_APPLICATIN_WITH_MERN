@@ -32,7 +32,7 @@ const Signin = () => {
 
 
       // Set the received token into a cookie
-      document.cookie = `access_token=${res.data.token}; path=/; domain=ancy-sorbet-4bc334.netlify.app; secure; HttpOnly;`;
+      document.cookie = `access_token=${res.data.token}; path=/; domain=fancy-sorbet-4bc334.netlify.app; secure; HttpOnly;`;
 
 
 
