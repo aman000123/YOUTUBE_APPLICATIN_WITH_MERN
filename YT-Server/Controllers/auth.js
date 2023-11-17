@@ -45,12 +45,12 @@ const signin = async (req, res, next) => {
         const user = await User.findOne({ name: req.body.name })
         console.log("user in db", user)
         if (!user) return res.status(500).json({ message: ' ! Sorry User not found' })
-        
-       //chcek password
+
+        //chcek password
         const isCorrect = await bcrypt.compare(req.body.password, user.password)
         if (!isCorrect) return res.status(500).json({ message: 'Wrong password' });
         // next(createError(400, "Wrong password!"))
-        
+
         //generate token
         const token = jwt.sign({ id: user._id }, process.env.SECRETKEY)
         console.log("token is", token)
@@ -61,29 +61,22 @@ const signin = async (req, res, next) => {
         const { password, ...other } = user._doc
 
         res.cookie("access_token", token, {
-<<<<<<< HEAD
             //    domain: ".onrender.com",
             domain: "unique-croquembouche-40b463.netlify.app",
             httpOnly: true,
             secure: true,
         });
-=======
-    domain: "genuine-puffpuff-358e2a.netlify.app",
-    path: "/",
-    httpOnly: true,
-    secure: true,
-    //sameSite: 'None',
-});
->>>>>>> 03d216b7c7bda3e45116f98041a5513a462c4764
 
-        
+
+
+
         // Send user data (excluding the password) in the response
         const { password: _, ...userData } = user._doc;
         res.status(200).json(userData);
     } catch (err) {
         // next(err)
-       res.status(500).json({ message: 'An error occurred while signing in', error: err });
- 
+        res.status(500).json({ message: 'An error occurred while signing in', error: err });
+
 
     }
 
