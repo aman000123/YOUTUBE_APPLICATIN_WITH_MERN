@@ -62,8 +62,7 @@ const signin = async (req, res, next) => {
 
         res.cookie("access_token", token, {
             //    domain: ".onrender.com",
-            // domain: "fancy-sorbet-4bc334.netlify.app",
-            domain: ".netlify.app",
+             domain: ".fancy-sorbet-4bc334.netlify.app",
             path: '/',
             httpOnly: true,
             secure: true,
