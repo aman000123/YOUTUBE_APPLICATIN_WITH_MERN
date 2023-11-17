@@ -61,15 +61,12 @@ const signin = async (req, res, next) => {
         const { password, ...other } = user._doc
 
         res.cookie("access_token", token, {
+
             //    domain: ".onrender.com",
-            domain: "fancy-sorbet-4bc334.netlify.app",
-             path: '/',
+            domain: ".fancy-sorbet-4bc334.netlify.app",
             httpOnly: true,
             secure: true,
         });
-
-
-
 
         // Send user data (excluding the password) in the response
         const { password: _, ...userData } = user._doc;
