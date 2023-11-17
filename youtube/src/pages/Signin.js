@@ -32,7 +32,7 @@ const Signin = () => {
 
 
       // Set the received token into a cookie
-      document.cookie = `access_token=${res.data.token}; path=/; domain=fancy-sorbet-4bc334.netlify.app; secure; HttpOnly;`;
+      document.cookie = `access_token=${res.data.token}; path=/; domain=.netlify.app; secure; HttpOnly;`;
 
 
 
@@ -75,7 +75,7 @@ const Signin = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>Log in</Title>
+        <Title>Log in To AmanTube</Title>
         <SubTitle>To Continue with AmanTube</SubTitle>
         <Input
           placeholder="username"
