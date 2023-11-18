@@ -78,7 +78,7 @@ const Signin = () => {
         <Title>Log in To AmanTubess</Title>
         <SubTitle>To Continue with AmanTube</SubTitle>
         <Input
-          placeholder="username"
+          placeholder="Username"
           onChange={(e) => setName(e.target.value)}
         />
         <Input

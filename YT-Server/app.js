@@ -40,7 +40,7 @@ const port = process.env.PORT || '4005'
 
 app.listen(port, () => {
     // connect(),
-    console.log("Connected at ports 4005 port")
+    console.log("Connected at port 4005 port")
 })
 
 const corsOptions = {
