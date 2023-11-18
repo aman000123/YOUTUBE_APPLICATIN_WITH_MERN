@@ -82,7 +82,7 @@ const Signin = () => {
           onChange={(e) => setName(e.target.value)}
         />
         <Input
-          type="password"
+          type="Password"
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         />
