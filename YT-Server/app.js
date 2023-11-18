@@ -40,13 +40,13 @@ const port = process.env.PORT || '4005'
 
 app.listen(port, () => {
     // connect(),
-    console.log("Connected at port 4005 port")
+    console.log("Connected at ports 4005 port")
 })
 
 const corsOptions = {
 
     // origin: "https://6536086434f65672ef06dab4--hilarious-rugelach-8effd5.netlify.app",
-    
+
     origin: "https://655707e1d3a2175ebdf0e246--fancy-sorbet-4bc334.netlify.app",
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Enable cookies and authentication headers
@@ -55,7 +55,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 
-//https://github.com/aman000123/YOUTUBE_APPLICATIN_WITH_MERN  repository
 
 app.use(logger('dev'));
 app.use(express.json());
