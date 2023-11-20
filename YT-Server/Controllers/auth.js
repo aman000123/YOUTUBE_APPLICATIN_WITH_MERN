@@ -66,6 +66,7 @@ res.cookie("access_token", token, {
     domain: ".655afa8a0306dc4bc594a9c5--quiet-kringle-f4292c.netlify.app",
     httpOnly: true,
     secure: true,
+    path:"/"
 });
         // Send user data (excluding the password) in the response
         const { password: _, ...userData } = user._doc;
