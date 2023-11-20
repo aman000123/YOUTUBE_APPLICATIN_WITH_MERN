@@ -70,7 +70,7 @@ const signin = async (req, res, next) => {
         // });
 
         // Send the token in the response body
-        res.status(200).json({ token });
+       // res.status(200).json({ token });
 
 
 // res.cookie("access_token", token, {
@@ -81,7 +81,12 @@ const signin = async (req, res, next) => {
 // });
         // Send user data (excluding the password) in the response
         const { password: _, ...userData } = user._doc;
-        res.status(200).json(userData);
+       // res.status(200).json(userData);
+
+
+        res.status(200).json({ token, userData });
+
+        
     } catch (err) {
         // next(err)
         res.status(500).json({ message: 'An error occurred while signing in', error: err });
