@@ -19,6 +19,7 @@ const Comments = ({ videoId, path }) => {
   const { currentVideo } = useSelector((state) => state.video);
 
   const [videos, setVideos] = useState({}); // State to hold all video data
+  const token = localStorage.getItem("access_token");
 
   useEffect(() => {
 
