@@ -75,7 +75,7 @@ const Signin = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>Log in </Title>
+        <Title>Log in to AmanTube </Title>
         <SubTitle>To Continue with AmanTube</SubTitle>
         <Input
           placeholder="Usernames"
