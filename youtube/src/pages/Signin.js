@@ -31,8 +31,20 @@ const Signin = () => {
         });
 
 
-      // Set the received token into a cookie
-      document.cookie = `access_token=${res.data.token}; path=/; domain=.netlify.app; secure; HttpOnly;`;
+
+
+      // // Set the received token into a cookie
+      // document.cookie = `access_token=${res.data.token}; path=/; domain=.netlify.app; secure; HttpOnly;`;
+      // // If you want the cookie to be accessible across various subdomains under netlify.app, set the domain attribute as .netlify.app:
+
+
+
+
+
+
+
+      // Store the received token into local storage
+      localStorage.setItem("access_token", res.data.token);
 
 
 
