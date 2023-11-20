@@ -14,7 +14,7 @@ router.post('/signup', signup);
 
 router.post('/signin', signin);
 
-//google authentication
+//google authentication set
 
 router.post('/google', googleAuth);
 
