@@ -60,14 +60,13 @@ const signin = async (req, res, next) => {
         //kai other things bhi send ho rahi
         const { password, ...other } = user._doc
 
-        res.cookie("access_token", token, {
+     
 
-            //    domain: ".onrender.com",
-            domain: ".netlify.app",
-            httpOnly: true,
-            secure: true,
-        });
-
+res.cookie("access_token", token, {
+    domain: ".655afa8a0306dc4bc594a9c5--quiet-kringle-f4292c.netlify.app",
+    httpOnly: true,
+    secure: true,
+});
         // Send user data (excluding the password) in the response
         const { password: _, ...userData } = user._doc;
         res.status(200).json(userData);
