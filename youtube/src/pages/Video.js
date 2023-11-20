@@ -36,6 +36,7 @@ const Video = () => {
 
 
   const token = localStorage.getItem("access_token");
+  console.log("token is received in" + token)
 
 
 
@@ -104,6 +105,7 @@ const Video = () => {
         },
         withCredentials: true,
       });
+      console.log("token is received in handle likes" + token)
 
 
 
