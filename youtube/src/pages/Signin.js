@@ -75,15 +75,15 @@ const Signin = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>Log in To AmanTubess</Title>
+        <Title>Log in </Title>
         <SubTitle>To Continue with AmanTube</SubTitle>
         <Input
           placeholder="Username"
           onChange={(e) => setName(e.target.value)}
         />
         <Input
-          type="Password"
-          placeholder="password"
+          type="password"
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <Buttons>
