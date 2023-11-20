@@ -35,6 +35,12 @@ const Video = () => {
   //  console.log("currentVideo", currentVideo, path)
 
 
+  const token = localStorage.getItem("access_token");
+
+
+
+
+
   const [chanel, setChanel] = useState({})
   const [hasViewed, setHasViewed] = useState(false);
 
@@ -92,6 +98,10 @@ const Video = () => {
     // Create an Axios instance for liking videos
     try {
       const axiosForLike = axios.create({
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the headers
+          "Content-Type": "application/json",
+        },
         withCredentials: true,
       });
 
@@ -115,6 +125,10 @@ const Video = () => {
       // Create an Axios instance for disliking videos
       //when we cliked on like and dislike then token Unauthenticated  shows then solve with create instance
       const axiosForDislike = axios.create({
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the headers
+          "Content-Type": "application/json",
+        },
         withCredentials: true,
       });
 
@@ -135,7 +149,12 @@ const Video = () => {
 
     try {
       const axiosForSub = axios.create({
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the headers
+          "Content-Type": "application/json",
+        },
         withCredentials: true,
+
       });
 
 

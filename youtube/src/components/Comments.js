@@ -59,6 +59,10 @@ const Comments = ({ videoId, path }) => {
 
     try {
       const axiosForComment = axios.create({
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the headers
+          "Content-Type": "application/json",
+        },
         withCredentials: true,
       });
 
