@@ -32,6 +32,9 @@ const Signin = () => {
 
 
 
+      // Store the received token into local storage
+      localStorage.setItem("access_token", res.data.token);
+
 
       // // Set the received token into a cookie
       // document.cookie = `access_token=${res.data.token}; path=/; domain=.netlify.app; secure; HttpOnly;`;
@@ -42,9 +45,6 @@ const Signin = () => {
 
 
 
-
-      // Store the received token into local storage
-      localStorage.setItem("access_token", res.data.token);
 
 
 
