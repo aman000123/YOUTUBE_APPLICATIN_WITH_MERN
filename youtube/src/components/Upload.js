@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 
 const Upload = ({ setOpen }) => {
 
-
+    const token = localStorage.getItem("access_token");
     const navigate = useNavigate()
 
     const [img, setImg] = useState(undefined);
@@ -110,7 +110,12 @@ const Upload = ({ setOpen }) => {
             e.preventDefault();
 
             const axiosForUpload = axios.create({
+                headers: {
+                    Authorization: `Bearer ${token}`, // Include the token in the headers
+                    "Content-Type": "application/json",
+                },
                 withCredentials: true,
+
             });
             const res = await axiosForUpload.post("https://amanytbes.onrender.com/api/videos", { ...inputs, tags })
             setOpen(false)
