@@ -12,13 +12,21 @@ const Card = ({ type, video }) => {
   const [channel, setChannel] = useState(null); // Initialize channel as null
 
 
+  const token = localStorage.getItem("access_token");
 
   useEffect(() => {
     const fetchChannel = async () => {
       try {
-        const res = await axios.get(`https://amanytbes.onrender.com/api/users/find/${video.userId}`);
-
+        const axiosForChannel = axios.create({
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        });
+        const res = await axiosForChannel.get(`https://amanytbes.onrender.com/api/users/find/${video.userId}`);
         setChannel(res.data);
+
       } catch (error) {
         console.error("Error fetching channel:", error);
       }

@@ -124,8 +124,8 @@ const Comments = ({ videoId, path }) => {
     } catch (err) {
       //change username first letter into capital 
       toast.error(`Hello! ` +
-        `${currentUser.name.charAt(0).toUpperCase() +
-        currentUser.name.slice(1)}` +
+        `${currentUser?.name.charAt(0).toUpperCase() +
+        currentUser?.name.slice(1)}` +
         `${err.response.data.message}`)
 
       console.error("Error deleting comment", err);
