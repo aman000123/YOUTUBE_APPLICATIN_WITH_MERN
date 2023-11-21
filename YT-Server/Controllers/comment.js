@@ -23,31 +23,30 @@ const addComment = async (req, res, next) => {
     }
 }
 
+
+
+
 const deleteComment = async (req, res, next) => {
     try {
 
         const comment = await Comment.findById(req.params.id); // Find comment details
-
         const video = await Video.findById(req.query.videoId); // Find video all details
-
 
         // Check if the user is authorized to delete the comment
         if (req.user.id === comment.userId || req.user.id === video.userId) {
             await Comment.findByIdAndDelete(req.params.id);
             res.status(200).json(`The comment has been deleted.`);
         } else {
-            if (!comment) {
-                res.status(404).json({ message: 'Comment not found.' });
-            } else {
-                res.status(403).json({ message: 'You can delete only your comment or comments on your video.' });
-            }
-
-
+            res.status(403).json({
+                message: ` you can delete only your comment`,
+            });
         }
     } catch (err) {
         next(err);
     }
 };
+
+
 
 const getAllComment = async (req, res, next) => {
 
