@@ -41,14 +41,6 @@ const Signin = () => {
       // // If you want the cookie to be accessible across various subdomains under netlify.app, set the domain attribute as .netlify.app:
 
 
-
-
-
-
-
-
-
-
       dispatch(loginSuccess(res.data));
       console.log("sign in data", res.data)
 

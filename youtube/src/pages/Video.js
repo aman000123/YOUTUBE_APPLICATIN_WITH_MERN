@@ -88,7 +88,7 @@ const Video = () => {
     }
     fetchData()
 
-  }, [path, dispatch, currentUser.subscribedUsers, currentVideo?._id, hasViewed])
+  }, [path, dispatch, currentUser?.subscribedUsers, currentVideo?._id, hasViewed])
 
 
   // console.log('currentVideo?.desc,===', currentVideo)
