@@ -25,20 +25,10 @@ const addComment = async (req, res, next) => {
 
 const deleteComment = async (req, res, next) => {
     try {
-        // console.log("commentid ===", req.params.id);
-        // const userId = req.query.userId;
-        // console.log("userid ===", userId);
-        // const videoId = req.query.videoId;
-        // console.log("videoId ===", videoId);
-        // console.log("req.user.id==", req.user.id)
-
 
         const comment = await Comment.findById(req.params.id); // Find comment details
 
         const video = await Video.findById(req.query.videoId); // Find video all details
-
-        // console.log("comment.userId", comment)
-        // console.log("video.userId===", video)
 
 
         // Check if the user is authorized to delete the comment
@@ -46,9 +36,13 @@ const deleteComment = async (req, res, next) => {
             await Comment.findByIdAndDelete(req.params.id);
             res.status(200).json(`The comment has been deleted.`);
         } else {
-            res.status(403).json({
-                message: ` you can delete only your comment`,
-            });
+            if (!comment) {
+                res.status(404).json({ message: 'Comment not found.' });
+            } else {
+                res.status(403).json({ message: 'You can delete only your comment or comments on your video.' });
+            }
+
+
         }
     } catch (err) {
         next(err);

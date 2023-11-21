@@ -101,11 +101,6 @@ const Comments = ({ videoId, path }) => {
   const handleDeleteComment = async (commentId, userId, videoId) => {
     try {
 
-      // console.log("commentId ===", commentId);
-      // console.log("userId ===", userId);
-      // console.log("userid name", currentUser.name)
-      // console.log("videoId ===", videoId);
-
       const axiosForComment = axios.create({
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the headers
@@ -124,8 +119,8 @@ const Comments = ({ videoId, path }) => {
     } catch (err) {
       //change username first letter into capital 
       toast.error(`Hello! ` +
-        `${currentUser?.name.charAt(0).toUpperCase() +
-        currentUser?.name.slice(1)}` +
+        `${currentUser?.name?.charAt(0).toUpperCase() +
+        currentUser?.name?.slice(1)}` +
         `${err.response.data.message}`)
 
       console.error("Error deleting comment", err);
