@@ -110,8 +110,8 @@ const Video = () => {
 
 
       await axiosForLike.put(`https://amanytbes.onrender.com/api/users/like/${currentVideo._id}`)
-      console.log('like(currentUser._id)', like(currentUser._id))
-      dispatch(like(currentUser._id))
+      console.log('like(currentUser?._id)', like(currentUser?._id))
+      dispatch(like(currentUser?._id))
     }
     catch (err) {
       console.log("err.response.data== like", err)
@@ -135,7 +135,7 @@ const Video = () => {
       });
 
       await axiosForDislike.put(`https://amanytbes.onrender.com/api/users/dislike/${currentVideo._id}`)
-      dispatch(dislike(currentUser._id))
+      dispatch(dislike(currentUser?._id))
 
     }
     catch (err) {
@@ -162,7 +162,7 @@ const Video = () => {
 
 
 
-      currentUser.subscribedUsers?.includes(chanel._id)
+      currentUser?.subscribedUsers?.includes(chanel._id)
 
         ? await axiosForSub.put(`https://amanytbes.onrender.com/api/users/unsub/${chanel._id}`)
 
@@ -199,13 +199,13 @@ const Video = () => {
             <Button onClick={handleLike}>
 
               {/*check whether user id inside likes button or not*/}
-              {currentVideo?.likes?.includes(currentUser._id) ?
+              {currentVideo?.likes?.includes(currentUser?._id) ?
                 (
                   <ThumbUpIcon />
                 ) : (<ThumbDownIcon />)}{currentVideo?.likes.length}
             </Button>
             <Button onClick={handleDislike}>
-              {currentVideo?.dislikes?.includes(currentUser._id) ? (<ThumbDownIcon />)
+              {currentVideo?.dislikes?.includes(currentUser?._id) ? (<ThumbDownIcon />)
                 : (<ThumbDownOffAltOutlinedIcon />)
 
               }Dislike
