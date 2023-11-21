@@ -18,11 +18,22 @@ const Home = ({ type }) => {
     const [videos, setVideos] = useState([])
     axios.defaults.withCredentials = true
 
+    const token = localStorage.getItem("access_token");
+
     useEffect(() => {
         const fetchVideos = async () => {
             try {
 
-                const res = await axios.get(`https://amanytbes.onrender.com/api/videos/${type}`, { withCredentials: true });
+
+                const axiosInstance = axios.create({
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                    withCredentials: true,
+                });
+
+                const res = await axiosInstance.get(`https://amanytbes.onrender.com/api/videos/${type}`);
                 console.log("Type prop:", type);
                 console.log("Response from API:", res);
 
