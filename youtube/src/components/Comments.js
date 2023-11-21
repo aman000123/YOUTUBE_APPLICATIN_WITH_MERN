@@ -59,6 +59,12 @@ const Comments = ({ videoId, path }) => {
   const handleComment = async (e) => {
     e.preventDefault();
 
+    if (!comment) {
+      // Alert or handle empty comment here
+      toast.error('Comment is required');
+      return; // Stop further execution
+    }
+
     try {
       const axiosForComment = axios.create({
         headers: {
