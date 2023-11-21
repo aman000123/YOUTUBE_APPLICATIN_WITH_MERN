@@ -237,7 +237,7 @@ const Video = () => {
               </Description>
             </ChannelDetail>
           </ChannelInfo>
-          <Subscribe onClick={handleSubscribe}>{currentUser.subscribedUsers?.includes(chanel._id) ? "SUBSCRIBED" : "SUBSCRIBE"}</Subscribe>
+          <Subscribe onClick={handleSubscribe}>{currentUser?.subscribedUsers?.includes(chanel._id) ? "SUBSCRIBED" : "SUBSCRIBE"}</Subscribe>
         </Channel>
         <Hr />
         {commentShow && <Comments videoId={currentVideo?._id} path={path} />}
