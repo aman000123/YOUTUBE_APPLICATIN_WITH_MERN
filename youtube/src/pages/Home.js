@@ -11,7 +11,15 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (min-width: 320px) and (max-width:767px){
+ display:flex;
+ gap:10px;
+ flex-direction: column;
+
+}
 `;
+
 
 const Home = ({ type }) => {
 

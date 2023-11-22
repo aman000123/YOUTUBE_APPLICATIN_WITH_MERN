@@ -18,7 +18,7 @@ const Container = styled.div`
 display:flex;
 @media (min-width: 320px) and (max-width:767px){
 
-  height: 100vh;  
+  height: fit-content;
 
 }
 `;
@@ -37,7 +37,7 @@ height:100vh;
 
 @media (min-width: 320px) and (max-width:767px){
 
-height: 100vh;
+height: fit-content;
 
 }`;
 
