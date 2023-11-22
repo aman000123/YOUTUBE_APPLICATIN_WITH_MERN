@@ -94,13 +94,13 @@ const Upload = ({ setOpen }) => {
 
 
     useEffect(() => {
-        // Check if video, img, and title are set to determine form validity
-        if (video && img && inputs.title) {
+        // Check if both imgUrl and videoUrl are set to determine form validity
+        if (inputs.imgUrl && inputs.videoUrl && inputs.title) {
             setFormValid(true);
         } else {
             setFormValid(false);
         }
-    }, [video, img, inputs.title]);
+    }, [inputs.imgUrl, inputs.videoUrl, inputs.title, video, img]);
 
 
 
