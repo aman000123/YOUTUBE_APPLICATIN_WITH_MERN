@@ -47,7 +47,7 @@ const corsOptions = {
 
     // origin: "https://6536086434f65672ef06dab4--hilarious-rugelach-8effd5.netlify.app",
 
-    origin: "https://655c5f6eebc67a4925be78a3--storied-choux-004db0.netlify.app",
+    origin: "https://655d95b52a03625da1b1d5fc--silver-sherbet-3ffaeb.netlify.app",
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // Enable cookies and authentication headers
 };
