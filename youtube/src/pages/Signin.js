@@ -20,6 +20,15 @@ const Signin = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    // Check if username or password is empty
+    if (!name || !password) {
+      toast.error("Please enter  username and password.");
+      return; // Stop execution if fields are empty
+    }
+
+
+
     dispatch(loginStart());
     try {
       const res = await axios.post("https://amanytbes.onrender.com/api/auths/signin", { name, password },

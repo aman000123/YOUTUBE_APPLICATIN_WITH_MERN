@@ -90,6 +90,9 @@ export default Navbar
 
 
 
+
+
+
 const MenuContainer = styled.div`
 position: fixed;
 top: 50px;
@@ -119,13 +122,17 @@ color: ${({ theme }) => theme.text}; // Set the color from the theme
 font-size: 40px;
 width: 40px;
 
+
 &:hover {
   color: ${({ theme }) => theme.hoverColor}; // Change color on hover based on the theme
 }
 @media (min-width: 320px) and (max-width:767px){
 
-  background-color: ${({ theme }) => theme.bgLighter};
+  /* background-color: ${({ theme }) => theme.bgLighter}; */
          color: ${({ theme }) => theme.text};
+         width: 40px;
+    height: 40px;
+    border-radius: 50%;
 
 ;
 
@@ -146,19 +153,35 @@ height:50px`;
 
 
 const Container = styled.div`
-  position: sticky;
+  position: sticky !important;
   top: 0;
   background-color: ${({ theme }) => theme.bgLighter};
   height: 56px;
-  z-index: 111111111;
+  z-index: 111111111 !important;
   @media (min-width: 320px) and (max-width:767px){
-display: flex;
+    z-index: 111111111 !important;
 width: 100%;
 background-color: ${({ theme }) => theme.bgLighter};
+/* background-color: red */
+
+@media (max-width: 380px){
+  /* background-color: red; */
+  border: 1px solid #ccc;
+  width: 97%;
+   border-radius: 5px;
+    margin: auto;
+    /* top: 0px; */
+    z-index: 111111111 !important;
+}
+
 
 }
 
+
+
 `;
+
+
 const Wrappper = styled.div`
   display: flex;
   align-items: center;
@@ -167,10 +190,12 @@ const Wrappper = styled.div`
   padding: 0px 16px;
   position: relative;
   @media (min-width: 320px) and (max-width:767px){ 
-    width: 100%;
+    /* width: 100%; */
     /* background-color:red; */
-  flex-direction:row-reverse;
+  
+  flex-direction: row-reverse;
   padding: 0px 0px 0px 20px;
+    /* border: 1px solid #ccc; */
 }
 `;
 const Search = styled.div`
@@ -190,6 +215,8 @@ const Search = styled.div`
     width: 60%;
     padding:3px 10px;
     color: ${({ theme }) => theme.text};
+    border: none;
+    left:100px
 }
 @media (min-width:760px)and (max-width:1024px){
 
@@ -225,6 +252,11 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   gap: 5px;
+  @media (min-width: 320px) and (max-width:767px){ 
+width: max-content;
+padding: 3px 7px;
+   
+}
 `;
 
 const User = styled.div`

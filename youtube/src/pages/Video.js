@@ -163,24 +163,16 @@ const Video = () => {
 
 
       currentUser?.subscribedUsers?.includes(chanel._id)
-
         ? await axiosForSub.put(`https://amanytbes.onrender.com/api/users/unsub/${chanel._id}`)
-
-
-
         : await axiosForSub.put(`https://amanytbes.onrender.com/api/users/sub/${chanel._id}`);
       dispatch(subscription(chanel._id))
     }
-
     catch (err) {
       console.log("err.response.data== subscribed", err)
       toast.error("You are not authenticated for Subscribed")
 
     }
   }
-
-
-
   const handleForComment = () => {
     setCommentShow(!commentShow); // Toggle the commentShow state
   }
@@ -238,6 +230,7 @@ const Video = () => {
             </ChannelDetail>
           </ChannelInfo>
           <Subscribe onClick={handleSubscribe}>{currentUser?.subscribedUsers?.includes(chanel._id) ? "SUBSCRIBED" : "SUBSCRIBE"}</Subscribe>
+
         </Channel>
         <Hr />
         {commentShow && <Comments videoId={currentVideo?._id} path={path} />}
