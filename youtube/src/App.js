@@ -32,7 +32,7 @@ const Main = styled.div`
 const Wrappper = styled.div`
 padding:22px 22px 22px 22px;
 z-index:-111111 !important;
-height:100vh;
+
 
 
 @media (min-width: 320px) and (max-width:767px){
