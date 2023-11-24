@@ -26,7 +26,7 @@ const Video = () => {
 
   const { currentUser } = useSelector((state) => state.user);
   console.log("  currentUser=======>>==", currentUser)
-  console.log("  currentUser.subscribedUsers==--=====", currentUser?.userData)
+  console.log("  currentUser.subscribedUsers==--=====>>", currentUser?.userData?.subscribedUsers)
   const { currentVideo } = useSelector((state) => state.video);
 
   const [commentShow, setCommentShow] = useState(false)

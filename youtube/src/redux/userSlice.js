@@ -39,8 +39,8 @@ export const userSlice = createSlice({
         },
         subscription: (state, action) => {
             if (state.currentUser.userData?.subscribedUsers?.includes(action.payload)) {
-                state.currentUser.subscribedUsers.splice(
-                    state.currentUser.subscribedUsers.findIndex(
+                state.currentUser.userData?.subscribedUsers.splice(
+                    state.currentUser.userData?.subscribedUsers.findIndex(
                         (channelId) => channelId === action.payload
                     ),
                     1
