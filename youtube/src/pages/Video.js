@@ -125,7 +125,7 @@ const Video = () => {
         withCredentials: true,
 
       });
-      currentUser?.userData?.
+      currentUser?.userData?.name?.
         subscribedUsers?.includes(chanel._id)
         ? await axiosForSub.put(`https://amanytbes.onrender.com/api/users/unsub/${chanel._id}`)
         : await axiosForSub.put(`https://amanytbes.onrender.com/api/users/sub/${chanel._id}`);
