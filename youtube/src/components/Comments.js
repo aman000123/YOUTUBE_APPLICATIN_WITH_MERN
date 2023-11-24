@@ -25,7 +25,6 @@ const Comments = ({ videoId, path }) => {
 
   const [videos, setVideos] = useState({}); // State to hold all video data
   const token = localStorage.getItem("access_token");
-  console.log("token is received in" + token)
 
   useEffect(() => {
 

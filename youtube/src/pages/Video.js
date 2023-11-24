@@ -73,7 +73,7 @@ const Video = () => {
     }
     fetchData()
 
-  }, [path, dispatch, currentUser?.subscribedUsers, currentVideo?._id, hasViewed])
+  }, [path, dispatch, currentUser?.userData?.subscribedUsers, currentVideo?._id, hasViewed])
   const handleLike = async () => {
 
     try {
@@ -123,7 +123,7 @@ const Video = () => {
           Authorization: `Bearer ${token}`, // Include the token in the headers
           "Content-Type": "application/json",
         },
-        withCredentials: true,
+        withCredentials: true,  //currentUser.subscribedUsers
 
       });
       currentUser?.userData?.subscribedUsers?.includes(chanel._id)
