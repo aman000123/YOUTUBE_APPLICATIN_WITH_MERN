@@ -18,7 +18,6 @@ const Upload = ({ setOpen }) => {
 
     const token = localStorage.getItem("access_token");
     const navigate = useNavigate()
-
     const [img, setImg] = useState(undefined);
     const [video, setVideo] = useState(undefined);
     const [imgPerc, setImgPerc] = useState(0);
@@ -27,29 +26,22 @@ const Upload = ({ setOpen }) => {
     const [tags, setTags] = useState([]);
     const [formValid, setFormValid] = useState(false); // Track form validity
 
-
-
     const handleChange = (e) => {
         setInputs((prev) => {
             return { ...prev, [e.target.name]: e.target.value };
         });
     };
-
     const handleTags = (e) => {
         setTags(e.target.value.split(","));
     };
-
-
     //for uploading
-
     const uploadFile = (file, urlType) => {
         //use fire base uploading process
         const storage = getStorage(app);
         const fileName = new Date().getTime() + file.name;
         const storageRef = ref(storage, fileName);
         const uploadTask = uploadBytesResumable(storageRef, file);
-
-
+        //use fire base uploading process
         uploadTask.on(
             "state_changed",
             (snapshot) => {
@@ -76,9 +68,6 @@ const Upload = ({ setOpen }) => {
                 });
             }
         );
-
-
-
     }
 
     useEffect(() => {
@@ -92,7 +81,6 @@ const Upload = ({ setOpen }) => {
 
     }, [img])
 
-
     useEffect(() => {
         // Check if both imgUrl and videoUrl are set to determine form validity
         if (inputs.imgUrl && inputs.videoUrl && inputs.title) {
@@ -103,24 +91,20 @@ const Upload = ({ setOpen }) => {
     }, [inputs.imgUrl, inputs.videoUrl, inputs.title, video, img]);
 
 
-
     const handleUpload = async (e) => {
 
         try {
             e.preventDefault();
-
             const axiosForUpload = axios.create({
                 headers: {
                     Authorization: `Bearer ${token}`, // Include the token in the headers
                     "Content-Type": "application/json",
                 },
                 withCredentials: true,
-
             });
             const res = await axiosForUpload.post("https://amanytbes.onrender.com/api/videos", { ...inputs, tags })
             setOpen(false)
             res.status === 200 && navigate(`/video/${res.data._id}`)
-
         }
         catch (err) {
             console.log("err in uploading video", err)
@@ -128,8 +112,6 @@ const Upload = ({ setOpen }) => {
 
         }
     }
-
-
     return (
         <Container>
             <Wrapper>
@@ -175,8 +157,8 @@ const Upload = ({ setOpen }) => {
 
                 <Button
                     onClick={handleUpload}
-                    disabled={!formValid} // Disable the button if the form is not valid or empty
-                    style={{ cursor: formValid ? 'pointer' : 'not-allowed' }} // Set cursor property based on form validity
+                    disabled={!formValid}
+                    style={{ cursor: formValid ? 'pointer' : 'not-allowed' }}
                 >Upload</Button>
             </Wrapper>
         </Container>

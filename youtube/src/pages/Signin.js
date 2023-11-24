@@ -13,22 +13,15 @@ const Signin = () => {
 
   const [name, setName] = useState("")
   const [password, setPassword] = useState("")
-
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
-
   const handleLogin = async (e) => {
     e.preventDefault();
-
     // Check if username or password is empty
     if (!name || !password) {
       toast.error("Please enter  username and password.");
       return; // Stop execution if fields are empty
     }
-
-
-
     dispatch(loginStart());
     try {
       const res = await axios.post("https://amanytbes.onrender.com/api/auths/signin", { name, password },
@@ -39,25 +32,13 @@ const Signin = () => {
           withCredentials: true, // Include credentials (cookies) in the request
         });
 
-
-
       // Store the received token into local storage
       localStorage.setItem("access_token", res.data.token);
-
-
-      // // Set the received token into a cookie
-      // document.cookie = `access_token=${res.data.token}; path=/; domain=.netlify.app; secure; HttpOnly;`;
-      // // If you want the cookie to be accessible across various subdomains under netlify.app, set the domain attribute as .netlify.app:
-
-
       dispatch(loginSuccess(res.data));
-      console.log("sign in data", res.data)
-
       navigate("/")
     } catch (err) {
       // toast.error(err.response.data.message)
       toast.error(err.response?.data?.message)
-      console.log("erro in login", err)
       dispatch(loginFailure());
     }
   };

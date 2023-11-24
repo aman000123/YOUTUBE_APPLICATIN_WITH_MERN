@@ -21,11 +21,9 @@ const Signup = () => {
 
     const handleOnSignup = async (e) => {
         e.preventDefault();
-
         // Reset previous error messages
         setValidationErrors({});
-
-        // Create a new errors object
+        // Create a new erors object
         const errors = {};
 
         // Simple client-side validation
@@ -49,14 +47,10 @@ const Signup = () => {
 
         // Set the errors object in the state
         setValidationErrors(errors);
-
         // Check if there are any errors
         if (Object.keys(errors).length > 0) {
             return;
         }
-
-
-
         dispatch(signinStart());
 
         try {
@@ -74,14 +68,8 @@ const Signup = () => {
             toast.error(err.response?.data?.message)
             console.log("err in signup", err.response.data)
             dispatch(signininFailure());
-
-
         }
     };
-
-
-
-
     return (
         <Container>
             <Wrapper>

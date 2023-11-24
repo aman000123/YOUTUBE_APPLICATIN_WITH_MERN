@@ -25,6 +25,7 @@ const Video = () => {
 
 
   const { currentUser } = useSelector((state) => state.user);
+  console.log("current user for subscribe======", currentUser)
   const { currentVideo } = useSelector((state) => state.video);
 
   const [commentShow, setCommentShow] = useState(false)
@@ -50,16 +51,8 @@ const Video = () => {
 
     const fetchData = async () => {
       try {
-
-
-
-
-
         const videoRes = await axios.get(`https://amanytbes.onrender.com/api/videos/find/${path}`)
         const chanelRes = await axios.get(`https://amanytbes.onrender.com/api/users/find/${videoRes.data.userId}`);
-        //  console.log("videoRes.data.userid", videoRes.data.userId)
-
-        // Check if the video has already been viewed within the current session
 
         const hasIncrementedViews = localStorage.getItem(`hasIncrementedViews_${videoRes.data._id}`);
         if (!hasIncrementedViews) {
@@ -69,34 +62,19 @@ const Video = () => {
           localStorage.setItem(`hasIncrementedViews_${videoRes.data._id}`, "true");
           dispatch(incrementViews());
         }
-
-
         setChanel(chanelRes.data)
         dispatch(fetchSuccess(videoRes.data))
       }
-
-
       catch (err) {
         //  toast.error(err.response.data)
-        //console.log("err.response.data==", err.response.data)
 
       }
-
-
-
-
     }
     fetchData()
 
   }, [path, dispatch, currentUser?.subscribedUsers, currentVideo?._id, hasViewed])
-
-
-  // console.log('currentVideo?.desc,===', currentVideo)
-
-
   const handleLike = async () => {
 
-    // Create an Axios instance for liking videos
     try {
       const axiosForLike = axios.create({
         headers: {
@@ -105,10 +83,6 @@ const Video = () => {
         },
         withCredentials: true,
       });
-      console.log("token is received in handle likes" + token)
-
-
-
       await axiosForLike.put(`https://amanytbes.onrender.com/api/users/like/${currentVideo._id}`)
       console.log('like(currentUser?._id)', like(currentUser?._id))
       dispatch(like(currentUser?._id))
@@ -118,14 +92,10 @@ const Video = () => {
       toast.error("You are not authenticated for Like")
 
     }
-
   }
-
   const handleDislike = async () => {
 
     try {
-      // Create an Axios instance for disliking videos
-      //when we cliked on like and dislike then token Unauthenticated  shows then solve with create instance
       const axiosForDislike = axios.create({
         headers: {
           Authorization: `Bearer ${token}`, // Include the token in the headers
@@ -144,9 +114,6 @@ const Video = () => {
 
     }
   }
-
-
-
   const handleSubscribe = async () => {
 
     try {
@@ -158,14 +125,11 @@ const Video = () => {
         withCredentials: true,
 
       });
-
-
-
-
       currentUser?.subscribedUsers?.includes(chanel._id)
         ? await axiosForSub.put(`https://amanytbes.onrender.com/api/users/unsub/${chanel._id}`)
         : await axiosForSub.put(`https://amanytbes.onrender.com/api/users/sub/${chanel._id}`);
-      dispatch(subscription(chanel._id))
+      dispatch(subscription(chanel._id));
+      console.log("current user for subscribe======", currentUser)
     }
     catch (err) {
       console.log("err.response.data== subscribed", err)
@@ -176,8 +140,6 @@ const Video = () => {
   const handleForComment = () => {
     setCommentShow(!commentShow); // Toggle the commentShow state
   }
-
-
   return (
     <Container>
       <Content>

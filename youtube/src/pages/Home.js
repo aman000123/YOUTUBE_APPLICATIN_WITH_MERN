@@ -31,8 +31,6 @@ const Home = ({ type }) => {
     useEffect(() => {
         const fetchVideos = async () => {
             try {
-
-
                 const axiosInstance = axios.create({
                     headers: {
                         Authorization: `Bearer ${token}`,
@@ -40,19 +38,13 @@ const Home = ({ type }) => {
                     },
                     withCredentials: true,
                 });
-
                 const res = await axiosInstance.get(`https://amanytbes.onrender.com/api/videos/${type}`);
-                console.log("Type prop:", type);
-                console.log("Response from API:", res);
-
                 // Filter out duplicate videos based on unique _id
                 const uniqueVideos = res.data.filter((video, index, self) =>
                     index === self.findIndex((v) => v._id === video._id)
                     //self is a reference to the original array, which is res.data in this case.
                 );
-
                 setVideos(uniqueVideos);
-
             } catch (error) {
                 console.error("Error fetching videos:", error);
             }

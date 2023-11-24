@@ -15,12 +15,8 @@ const Navbar = ({ setDarkMode, darkMode }) => {
 
   const { currentUser } = useSelector(state => state.user)
   const { currentVideo } = useSelector(state => state.video)
-  //console.log(currentVideo)
-
   const [open, setOpen] = useState(false)
-
   const [q, setQ] = useState("");
-
   const [isListIconClicked, setIsListIconClicked] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,8 +26,6 @@ const Navbar = ({ setDarkMode, darkMode }) => {
     setMenuOpen(!menuOpen);
     setIsListIconClicked(!isListIconClicked); // Toggle the state when list icon is clicked
   };
-
-
   return (
     <>
       <>
@@ -57,7 +51,6 @@ const Navbar = ({ setDarkMode, darkMode }) => {
               </Logo>
 
             )}
-
             <Search>
               <Input placeholder="Just Search" onChange={(e) => setQ(e.target.value)} />
               <SearchOutlinedIcon onClick={() => navigate(`/search?q=${q}`)} />
@@ -79,7 +72,6 @@ const Navbar = ({ setDarkMode, darkMode }) => {
         </Container >
         {open && <Upload setOpen={setOpen} />}
       </>
-
     </>
   )
 }

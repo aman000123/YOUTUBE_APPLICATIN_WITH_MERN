@@ -139,7 +139,7 @@ const random = async (req, res, next) => {
 
     }
     catch (err) {
-         res.status(500).json("Error in random video",err)
+        res.status(500).json("Error in random video", err)
         next(err)
     }
 
@@ -192,13 +192,8 @@ const subscribedVideo = async (req, res, next) => {
 
 
 const getByTag = async (req, res, next) => {
-
-    // const tags = req.query.tags;
-    //console.log("tags", tags)
-    //to separate tags
-    //http://localhost:4004/api/videos/tags?tags=js
     const tags = req.query.tags.split(",");
-    console.log("tags", tags)
+    //  console.log("tags", tags)
 
     try {
         //$in check inside or not
