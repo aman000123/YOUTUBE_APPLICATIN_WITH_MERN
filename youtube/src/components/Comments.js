@@ -17,6 +17,11 @@ const Comments = ({ videoId, path }) => {
 
   const [comments, setComments] = useState([])
   const { currentVideo } = useSelector((state) => state.video);
+  const { currentUser } = useSelector((state) => state.user)
+
+  console.log("comment logo user======>>>>>", currentUser)
+
+
 
   const [videos, setVideos] = useState({}); // State to hold all video data
   const token = localStorage.getItem("access_token");
@@ -28,8 +33,6 @@ const Comments = ({ videoId, path }) => {
       try {
 
         const res = await axios.get(`https://amanytbes.onrender.com/api/comments/${videoId}`);
-
-
         console.log("comments get", res.data)
 
         // Fetch all video data
@@ -51,7 +54,7 @@ const Comments = ({ videoId, path }) => {
     fetchComment()
   }, [videoId])
 
-  const { currentUser } = useSelector((state) => state.user)
+
   const [comment, setComment] = useState("");
 
   //console.log("comment logo user", currentUser)
@@ -119,12 +122,12 @@ const Comments = ({ videoId, path }) => {
     } catch (err) {
       //change username first letter into capital 
       toast.error(`Hello! ` +
-        `${currentUser?.name.charAt(0).toUpperCase() +
+        `${currentUser?.name?.charAt(0).toUpperCase() +
         currentUser?.name?.slice(1)}` +
         `${err.response.data.message}`)
 
       console.error("Error deleting comment", err);
-      console.log("currentUser?.name====>", currentUser?.name)
+      console.log("currentUser?.name====>     ", currentUser)
 
 
 
