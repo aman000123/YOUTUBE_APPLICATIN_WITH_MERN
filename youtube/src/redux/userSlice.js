@@ -38,7 +38,7 @@ export const userSlice = createSlice({
             state.error = true;
         },
         subscription: (state, action) => {
-            if (state.currentUser.subscribedUsers?.includes(action.payload)) {
+            if (state.currentUser.userData?.subscribedUsers?.includes(action.payload)) {
                 state.currentUser.subscribedUsers.splice(
                     state.currentUser.subscribedUsers.findIndex(
                         (channelId) => channelId === action.payload
@@ -47,7 +47,7 @@ export const userSlice = createSlice({
                 );
             } else {
                 //if not subscribed before
-                state.currentUser.subscribedUsers?.push(action.payload);
+                state.currentUser.userData?.subscribedUsers?.push(action.payload);
             }
         },
     },

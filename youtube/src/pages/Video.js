@@ -25,7 +25,8 @@ const Video = () => {
 
 
   const { currentUser } = useSelector((state) => state.user);
-  console.log("  currentUser.subscribedUsers==", currentUser?.subscribedUsers)
+  console.log("  currentUser=======>>==", currentUser)
+  console.log("  currentUser.subscribedUsers==--=====", currentUser?.userData)
   const { currentVideo } = useSelector((state) => state.video);
 
   const [commentShow, setCommentShow] = useState(false)
@@ -125,7 +126,7 @@ const Video = () => {
         withCredentials: true,
 
       });
-      currentUser?.userData?.name?.subscribedUsers?.includes(chanel._id)
+      currentUser?.userData?.subscribedUsers?.includes(chanel._id)
         ? await axiosForSub.put(`https://amanytbes.onrender.com/api/users/unsub/${chanel._id}`)
         : await axiosForSub.put(`https://amanytbes.onrender.com/api/users/sub/${chanel._id}`);
       dispatch(subscription(chanel._id));
@@ -191,7 +192,7 @@ const Video = () => {
               </Description>
             </ChannelDetail>
           </ChannelInfo>
-          <Subscribe onClick={handleSubscribe}>{currentUser?.userData?.name?.subscribedUsers?.includes(chanel._id) ? "SUBSCRIBED" : "SUBSCRIBE"}</Subscribe>
+          <Subscribe onClick={handleSubscribe}>{currentUser?.userData?.subscribedUsers?.includes(chanel._id) ? "SUBSCRIBED" : "SUBSCRIBE"}</Subscribe>
 
         </Channel>
         <Hr />
