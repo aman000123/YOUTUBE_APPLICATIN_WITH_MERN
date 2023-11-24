@@ -19,7 +19,7 @@ const Comments = ({ videoId, path }) => {
   const { currentVideo } = useSelector((state) => state.video);
   const { currentUser } = useSelector((state) => state.user)
 
-  console.log("comment logo user======>>>>>", currentUser)
+  console.log("comment logo user======>>>>>", currentUser.userData.name)
 
 
 
@@ -122,8 +122,8 @@ const Comments = ({ videoId, path }) => {
     } catch (err) {
       //change username first letter into capital 
       toast.error(`Hello! ` +
-        `${currentUser?.name?.charAt(0).toUpperCase() +
-        currentUser?.name?.slice(1)}` +
+        `${currentUser?.userData?.name?.charAt(0).toUpperCase() +
+        currentUser?.userData?.name?.slice(1)}` +
         `${err.response.data.message}`)
 
       console.error("Error deleting comment", err);

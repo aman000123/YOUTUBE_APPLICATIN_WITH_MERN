@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.e82676b8.css",
-    "main.js": "/static/js/main.a7d63351.js",
+    "main.js": "/static/js/main.df7dab91.js",
     "static/js/787.84a09f13.chunk.js": "/static/js/787.84a09f13.chunk.js",
     "static/media/corey-frederick.png": "/static/media/corey-frederick.4cc647db6dc0daa9b080.png",
     "index.html": "/index.html",
     "main.e82676b8.css.map": "/static/css/main.e82676b8.css.map",
-    "main.a7d63351.js.map": "/static/js/main.a7d63351.js.map",
+    "main.df7dab91.js.map": "/static/js/main.df7dab91.js.map",
     "787.84a09f13.chunk.js.map": "/static/js/787.84a09f13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e82676b8.css",
-    "static/js/main.a7d63351.js"
+    "static/js/main.df7dab91.js"
   ]
 }
