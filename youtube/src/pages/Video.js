@@ -25,7 +25,7 @@ const Video = () => {
 
 
   const { currentUser } = useSelector((state) => state.user);
-  console.log("current user for subscribe======", currentUser?.userData?.name)
+  console.log("  currentUser.subscribedUsers==", currentUser?.subscribedUsers)
   const { currentVideo } = useSelector((state) => state.video);
 
   const [commentShow, setCommentShow] = useState(false)
@@ -125,8 +125,7 @@ const Video = () => {
         withCredentials: true,
 
       });
-      currentUser?.userData?.name?.
-        subscribedUsers?.includes(chanel._id)
+      currentUser?.userData?.name?.subscribedUsers?.includes(chanel._id)
         ? await axiosForSub.put(`https://amanytbes.onrender.com/api/users/unsub/${chanel._id}`)
         : await axiosForSub.put(`https://amanytbes.onrender.com/api/users/sub/${chanel._id}`);
       dispatch(subscription(chanel._id));
