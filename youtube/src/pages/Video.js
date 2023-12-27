@@ -25,8 +25,6 @@ const Video = () => {
 
 
   const { currentUser } = useSelector((state) => state.user);
-  console.log("  currentUser=======>>==", currentUser)
-  console.log("  currentUser.subscribedUsers==--=====>>", currentUser?.userData?.subscribedUsers)
   const { currentVideo } = useSelector((state) => state.video);
 
   const [commentShow, setCommentShow] = useState(false)
@@ -110,7 +108,7 @@ const Video = () => {
 
     }
     catch (err) {
-      console.log("err.response.data== like", err)
+      //console.log("err.response.data== like", err)
       toast.error("You are not authenticated for Dislike")
 
     }
@@ -133,7 +131,7 @@ const Video = () => {
       console.log("current user for subscribe======", currentUser)
     }
     catch (err) {
-      console.log("err.response.data== subscribed", err)
+      //  console.log("err.response.data== subscribed", err)
       toast.error("You are not authenticated for Subscribed")
 
     }

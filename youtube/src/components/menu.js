@@ -146,16 +146,17 @@ const Menu = ({ darkMode, setDarkMode, isListIconClicked, toggleMenu }) => {
                             <FlagOutlinedIcon />
                             Report
                         </Item>
+                        <Item onClick={handleDarkModeClick}>
+                            <SettingsBrightnessOutlinedIcon />
+                            {darkMode ? "Light" : "Dark"} Mode
+                        </Item>
                         <Item>
                             <HelpOutlineOutlinedIcon />
                             Help
                         </Item>
 
 
-                        <Item onClick={handleDarkModeClick}>
-                            <SettingsBrightnessOutlinedIcon />
-                            {darkMode ? "Light" : "Dark"} Mode
-                        </Item>
+
                     </Wrappper>
                 </Container>
             </>
